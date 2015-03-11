@@ -1,4 +1,5 @@
 '''
+TEACHER comment
 Build a function that given a string, returns all places that contain the string:
 >>> places = find_places('IAL')
 >>> places[0]
