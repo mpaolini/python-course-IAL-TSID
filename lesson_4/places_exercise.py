@@ -30,7 +30,13 @@ def find_places(place_name):
     url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?' + qs
     resp = urllib.request.urlopen(url).read()
     data = json.loads(resp.decode())
-    return data
+    locations = []
+    for place in data['results']:
+        name = place['name']
+        lat = place['geometry']['location']['lat']
+        lng = place['geometry']['location']['lng']
+        locations.append((name, lat, lng))
+    return locations
 
 
 def nearby_place(lat, lng):
