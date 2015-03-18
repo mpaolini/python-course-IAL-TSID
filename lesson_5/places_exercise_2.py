@@ -55,7 +55,6 @@ def find_place_reviews(place_name):
               'key': KEY}
     resp = requests.get(url, params=params)
     data = resp.json()
-    import pdb; pdb.set_trace()
     ratings = []
     for place in data['results']:
         resp2 = requests.get(
