@@ -41,7 +41,8 @@ def is_email_present(email):
 def is_name_present(name):
     resp = urllib.request.urlopen(url)
     data = json.loads(resp.read().decode())
+    all_names = set()
     for first_last in data.values():
-        if name in first_last:
-            return True
-    return False
+        for chunk in first_last.split():
+            all_names.add(chunk)
+    return name in all_names
