@@ -65,10 +65,10 @@ in it.
 It returns a dictionary with words as keys and number of occurrences as values.
 
 
-    >>> test_4.count_words('merry christmas')
-    {'merry': 1, 'christmas': 1}
-    >>> test_4.count_words('white cat and black cat')
-    {'cat': 2, 'white': 1, 'black': 1, 'and': 1}
+    >>> test_4.count_words('merry christmas') == {'merry': 1, 'christmas': 1}
+    True
+    >>> test_4.count_words('white cat and black cat') == {'cat': 2, 'white': 1, 'black': 1, 'and': 1}
+    True
 
 
 ## test_5.py
