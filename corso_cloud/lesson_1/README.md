@@ -47,4 +47,5 @@ To run the app on your servers do:
 
 ## Logging and monitoring
 
-The app will log all its activity on a file named `twitter_example.log`
+The app will log all its activity on logentries and `WARNINGS` and
+`ERRORS` are delivered to a slack channel via web hook.
