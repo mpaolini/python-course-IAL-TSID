@@ -1,9 +1,16 @@
 # python standard library
 import base64
-
-# 3rd party
 import requests
 import psycopg2
+
+import logging
+
+import logentries
+logger = logging.getLogger('my_program')
+logger.addHandler(
+    logentries.LogentriesHandler('xxxxx')
+)
+logger.setLevel(logging.INFO)
 
 
 def get_token(client_id, client_secret):
@@ -62,7 +69,9 @@ def save_tweets(tweets):
 if __name__ == '__main__':
     import os
     import sys
-    print('getting token...')
+    logger.info('getting token...')
+    if 'TWITTER_APP_ID' not in os.environ:
+        logger.error('config error')
     token = get_token(
         os.environ['TWITTER_APP_ID'],
         os.environ['TWITTER_APP_SECRET']
